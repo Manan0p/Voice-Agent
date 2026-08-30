@@ -36,6 +36,14 @@ htmlcov/
 .env.local
 *.local.env
 
+# AI Models & Weights
+models/
+*.onnx
+*.bin
+*.pt
+*.pth
+*.safetensors
+
 # Telephony & Audio Recordings
 *.wav
 *.mp3
@@ -43,6 +51,7 @@ htmlcov/
 *.pcm
 recordings/
 audio_cache/
+
 
 # Databases & Local storage
 *.sqlite

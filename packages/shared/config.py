@@ -46,7 +46,10 @@ class Settings(BaseSettings):
     whisper_compute_type: str = "auto"
 
     # TTS Settings (Phase 3)
-    kokoro_voice: str = "af_heart"
+    tts_provider: Literal["kokoro", "piper", "mock"] = "kokoro"
+    kokoro_voice: str = "af_bella"
+    kokoro_speed: float = 1.0
+    kokoro_model_dir: str = "models/kokoro"
 
 
 @lru_cache
