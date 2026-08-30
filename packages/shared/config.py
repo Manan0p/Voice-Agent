@@ -32,8 +32,12 @@ class Settings(BaseSettings):
     postgres_password: str = "postgres"
     postgres_db: str = "personal_caller"
 
-    # AI Models
+    # AI Models & LLM Providers
+    llm_provider: Literal["gemini", "ollama", "mock"] = "gemini"
+    gemini_api_key: str = ""
+    gemini_model: str = "gemini-flash-lite-latest"
     ollama_base_url: str = "http://localhost:11434"
+
     qwen_model_name: str = "qwen2.5:7b-instruct"
     whisper_model_size: str = "base"
     kokoro_voice: str = "af_heart"
