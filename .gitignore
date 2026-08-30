@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv/
+venv/
+ENV/
+
+# Testing & Coverage
+.coverage
+.pytest_cache/
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Environments & Secrets
+.env
+.env.local
+*.local.env
+
+# Telephony & Audio Recordings
+*.wav
+*.mp3
+*.ogg
+*.pcm
+recordings/
+audio_cache/
+
+# Databases & Local storage
+*.sqlite
+*.sqlite3
+*.db
+pgdata/
+
+# IDE & OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Node (Dashboard)
+node_modules/
+.next/
+out/
