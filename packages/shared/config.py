@@ -37,9 +37,15 @@ class Settings(BaseSettings):
     gemini_api_key: str = ""
     gemini_model: str = "gemini-flash-lite-latest"
     ollama_base_url: str = "http://localhost:11434"
-
     qwen_model_name: str = "qwen2.5:7b-instruct"
+
+    # STT & Audio Settings (Phase 2)
+    stt_provider: Literal["whisper", "mock"] = "whisper"
     whisper_model_size: str = "base"
+    whisper_device: str = "auto"
+    whisper_compute_type: str = "auto"
+
+    # TTS Settings (Phase 3)
     kokoro_voice: str = "af_heart"
 
 
