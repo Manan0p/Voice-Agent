@@ -5,6 +5,7 @@ from typing import Any
 
 from apps.agent.context.manager import ContextManager
 from apps.agent.conversation.manager import ConversationManager
+from apps.agent.decision.models import DecisionState
 from apps.agent.llm.base import LLMProvider, ToolCall
 from apps.agent.llm.factory import get_llm_provider
 from apps.agent.tools.builtin import GetCurrentTimeTool, SaveCallerMessageTool
@@ -22,12 +23,13 @@ class AgentTurnResult:
     turn_index: int
     tool_calls: list[ToolCall] = field(default_factory=list)
     tool_results: list[dict[str, Any]] = field(default_factory=list)
+    decision_state: DecisionState | None = None
     total_latency_ms: float = 0.0
     llm_latency_ms: float = 0.0
 
 
 class AgentEngine:
-    """High-level Orchestrator managing conversation lifecycle, context, LLM, and tools."""
+    """High-level Orchestrator managing conversation lifecycle, context, LLM, decisions, and tools."""
 
     def __init__(
         self,
@@ -50,8 +52,8 @@ class AgentEngine:
         """Process a single turn of user input and return the assistant response."""
         start_time = time.perf_counter()
 
-        # 1. Update language state and policy based on caller utterance
-        self.context.update_language(user_input)
+        # 1. Update language state and compute decision state based on caller utterance
+        decision_state = self.context.update_state(user_input)
 
         # 2. Append user message to history
         self.conversation.add_user_message(user_input)
@@ -87,6 +89,7 @@ class AgentEngine:
                 return AgentTurnResult(
                     response_text=fallback,
                     turn_index=self.conversation.turn_count,
+                    decision_state=decision_state,
                     total_latency_ms=(time.perf_counter() - start_time) * 1000.0,
                 )
 
@@ -138,6 +141,7 @@ class AgentEngine:
                 turn_index=self.conversation.turn_count,
                 tool_calls=executed_tool_calls,
                 tool_results=executed_tool_results,
+                decision_state=decision_state,
                 total_latency_ms=total_latency,
                 llm_latency_ms=total_llm_latency,
             )
@@ -150,13 +154,14 @@ class AgentEngine:
             turn_index=self.conversation.turn_count,
             tool_calls=executed_tool_calls,
             tool_results=executed_tool_results,
+            decision_state=decision_state,
             total_latency_ms=(time.perf_counter() - start_time) * 1000.0,
             llm_latency_ms=total_llm_latency,
         )
 
     async def step_stream(self, user_input: str) -> AsyncGenerator[str, None]:
         """Stream conversational response for real-time text/voice output."""
-        self.context.update_language(user_input)
+        self.context.update_state(user_input)
         self.conversation.add_user_message(user_input)
         system_instruction = self.context.get_system_instruction()
 
