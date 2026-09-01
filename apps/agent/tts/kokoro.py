@@ -83,14 +83,20 @@ class KokoroTTSProvider(TTSProvider):
         if not clean_text:
             return TTSResult(audio_bytes=b"", sample_rate=self.sample_rate)
 
+        # Apply phonetic preprocessing for Indian English and Hinglish natural pronunciation
+        from apps.agent.tts.phonetics import preprocess_hinglish_for_tts
+
+        phonetic_text = preprocess_hinglish_for_tts(clean_text)
+
         start = time.perf_counter()
         try:
             samples, sample_rate = self.kokoro.create(
-                text=clean_text,
+                text=phonetic_text,
                 voice=selected_voice,
                 speed=speed,
                 lang="en-us",
             )
+
             latency_ms = (time.perf_counter() - start) * 1000.0
             duration_seconds = len(samples) / float(sample_rate)
 

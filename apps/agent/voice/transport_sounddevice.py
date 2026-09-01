@@ -1,5 +1,6 @@
 import queue
 import threading
+import time
 from typing import Any
 
 import sounddevice as sd
@@ -77,7 +78,7 @@ class SoundDeviceInputProcessor(FrameProcessor):
 
 
 class SoundDeviceOutputProcessor(FrameProcessor):
-    """Plays synthesized audio frames through PC speakers with instant interruption support."""
+    """Plays synthesized audio frames through PC speakers with echo suppression tracking."""
 
     def __init__(
         self,
@@ -91,6 +92,15 @@ class SoundDeviceOutputProcessor(FrameProcessor):
         self._stream: sd.RawOutputStream | None = None
         self._running = False
         self._playback_thread: threading.Thread | None = None
+        self._last_playback_time: float = 0.0
+
+    @property
+    def is_playing(self) -> bool:
+        """Returns True if the speaker is currently outputting sound or within the reverb tail."""
+        if not self._queue.empty():
+            return True
+        # Allow 350ms acoustic reverb guard tail after playback ends
+        return (time.time() - self._last_playback_time) < 0.35
 
     def start(self) -> None:
         """Start speaker playback worker."""
@@ -109,11 +119,13 @@ class SoundDeviceOutputProcessor(FrameProcessor):
             def _playback_worker() -> None:
                 while self._running:
                     try:
-                        chunk = self._queue.get(timeout=0.1)
+                        chunk = self._queue.get(timeout=0.05)
                         if chunk is None:
                             continue
                         if self._stream and self._running:
+                            self._last_playback_time = time.time()
                             self._stream.write(chunk)
+                            self._last_playback_time = time.time()
                     except queue.Empty:
                         continue
                     except Exception as e:
@@ -145,6 +157,7 @@ class SoundDeviceOutputProcessor(FrameProcessor):
                 self._queue.get_nowait()
             except queue.Empty:
                 break
+        self._last_playback_time = 0.0
 
     async def process_frame(self, frame: Frame, direction: FrameDirection) -> None:
         """Queue audio frames for speaker playback."""
@@ -158,6 +171,7 @@ class SoundDeviceOutputProcessor(FrameProcessor):
         elif isinstance(frame, (AudioRawFrame, TTSAudioRawFrame, InputAudioRawFrame)):
             if not self._running:
                 self.start()
+            self._last_playback_time = time.time()
             self._queue.put(frame.audio)
             await self.push_frame(frame, direction)
 

@@ -56,3 +56,14 @@ def test_tts_factory_mock() -> None:
     settings = Settings(tts_provider="mock")
     provider = get_tts_provider(settings)
     assert isinstance(provider, MockTTSProvider)
+
+
+def test_hinglish_phonetic_preprocessing() -> None:
+    """Verify Romanized Hindi words are phonetically mapped for Kokoro."""
+    from apps.agent.tts.phonetics import preprocess_hinglish_for_tts
+
+    sample = "Namaste! Aapka swagat hai, bataiyega."
+    processed = preprocess_hinglish_for_tts(sample)
+    assert "Nuh-muh-stay" in processed
+    assert "swaa-gut" in processed
+    assert "buh-taa-ee-yay-gah" in processed

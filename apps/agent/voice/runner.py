@@ -33,7 +33,7 @@ if sys.platform == "win32" and hasattr(sys.stdout, "reconfigure"):
 
 
 class LiveVoiceAgentRunner:
-    """Runs a live interactive voice agent using local microphone and speakers."""
+    """Runs a live interactive voice agent with acoustic echo suppression."""
 
     def __init__(self, caller_name: str = "User") -> None:
         self.settings = get_settings()
@@ -64,10 +64,10 @@ class LiveVoiceAgentRunner:
         tts_service = KokoroTTSService()
 
         vad_params = VADParams(
-            confidence=0.5,
+            confidence=0.6,
             start_secs=self.settings.vad_start_secs,
             stop_secs=self.settings.vad_stop_secs,
-            min_volume=0.01,
+            min_volume=0.04,
         )
         vad_analyzer = SileroVADAnalyzer(
             sample_rate=self.settings.audio_input_sample_rate,
@@ -107,6 +107,11 @@ class LiveVoiceAgentRunner:
             try:
                 while input_proc._running:
                     chunk = await loop.run_in_executor(None, input_proc.get_chunk)
+
+                    # Acoustic Echo Suppression: Ignore microphone input while agent is actively speaking
+                    if output_proc.is_playing:
+                        continue
+
                     frame = InputAudioRawFrame(
                         audio=chunk,
                         sample_rate=self.settings.audio_input_sample_rate,

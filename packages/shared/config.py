@@ -52,8 +52,8 @@ class Settings(BaseSettings):
     kokoro_model_dir: str = "models/kokoro"
 
     # Realtime Voice Pipeline & VAD (Phase 4)
-    vad_start_secs: float = 0.2
-    vad_stop_secs: float = 0.6
+    vad_start_secs: float = 0.25
+    vad_stop_secs: float = 1.0
     audio_input_sample_rate: int = 16000
     audio_output_sample_rate: int = 24000
 

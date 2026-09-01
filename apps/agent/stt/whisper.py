@@ -123,7 +123,9 @@ class FasterWhisperProvider(STTProvider):
         """Transcribe audio input and return structured result with latency metrics."""
         if initial_prompt is None:
             initial_prompt = (
-                "Hello, Namaste, this is a phone conversation in English and Hindi / Hinglish."
+                "This is a bilingual conversation in English, Hindi, and Hinglish. "
+                "Names and key vocabulary: Manan, Rahul, Namaste, meeting, call, message, "
+                "available, urgent, schedule, note, phone, haan, nahi, baat."
             )
 
         start_time = time.perf_counter()
@@ -141,17 +143,35 @@ class FasterWhisperProvider(STTProvider):
             full_text_parts: list[str] = []
 
             for seg in segments_gen:
+                seg_text = seg.text.strip()
+                if not seg_text:
+                    continue
+
+                # Filter out known Whisper hallucination artifacts on short background noise
+                lower_text = seg_text.lower().rstrip(".").strip()
+                if lower_text in {
+                    "thank you",
+                    "thank you for watching",
+                    "thank you very much",
+                    "thanks for watching",
+                    "subtitles by",
+                    "amara.org",
+                    "you",
+                } and (seg.end - seg.start < 1.0):
+                    logger.debug("Filtered Whisper silence hallucination: '%s'", seg_text)
+                    continue
+
                 segments.append(
                     TranscriptionSegment(
                         id=seg.id,
                         start=seg.start,
                         end=seg.end,
-                        text=seg.text.strip(),
+                        text=seg_text,
                         avg_logprob=seg.avg_logprob,
                         no_speech_prob=seg.no_speech_prob,
                     )
                 )
-                full_text_parts.append(seg.text.strip())
+                full_text_parts.append(seg_text)
 
             latency_ms = (time.perf_counter() - start_time) * 1000.0
             full_text = " ".join(full_text_parts)
