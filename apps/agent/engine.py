@@ -50,10 +50,14 @@ class AgentEngine:
         """Process a single turn of user input and return the assistant response."""
         start_time = time.perf_counter()
 
-        # 1. Append user message to history
+        # 1. Update language state and policy based on caller utterance
+        self.context.update_language(user_input)
+
+        # 2. Append user message to history
         self.conversation.add_user_message(user_input)
 
         system_instruction = self.context.get_system_instruction()
+
         tool_schemas = self.tools.get_schemas()
         caller_id = self.context.caller_context.caller_id
 
@@ -152,8 +156,10 @@ class AgentEngine:
 
     async def step_stream(self, user_input: str) -> AsyncGenerator[str, None]:
         """Stream conversational response for real-time text/voice output."""
+        self.context.update_language(user_input)
         self.conversation.add_user_message(user_input)
         system_instruction = self.context.get_system_instruction()
+
         messages = self.conversation.get_messages()
 
         full_content = ""

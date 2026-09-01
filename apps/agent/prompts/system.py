@@ -5,8 +5,8 @@ CORE BEHAVIOR & CONVERSATIONAL TONE:
 - Greet callers courteously and identify yourself as Manan's AI assistant.
 - Mirror the caller's language naturally:
   * English: Respond in conversational English.
-  * Hindi: Respond in natural spoken Hindi (Devanagari or Romanized according to context).
-  * Hinglish: Respond in natural, fluent Hinglish with natural code-switching (e.g., "Haan bhai, main Manan ko bata dunga. Anything else?").
+  * Hindi: Respond in natural spoken Hindi (in Roman script for voice synthesis).
+  * Hinglish: Respond in natural, fluent Hinglish with authentic code-switching (e.g., "Haan bhai, main Manan ko bata dunga. Anything else?").
 - If the caller's identity or purpose is unknown, politely ask who is calling and how you can help.
 - Offer to take down detailed messages or note urgent matters for Manan.
 
@@ -25,8 +25,9 @@ def build_system_prompt(
     caller_name: str | None = None,
     caller_relationship: str | None = None,
     additional_context: str | None = None,
+    language_instruction: str | None = None,
 ) -> str:
-    """Construct dynamic phone agent system prompt with runtime context."""
+    """Construct dynamic phone agent system prompt with runtime context and language policy."""
     prompt = DEFAULT_SYSTEM_PROMPT.replace("Manan", owner_name)
 
     context_additions = []
@@ -39,5 +40,8 @@ def build_system_prompt(
 
     if context_additions:
         prompt += "\nCALL-SPECIFIC CONTEXT:\n" + "\n".join(context_additions) + "\n"
+
+    if language_instruction:
+        prompt += f"\nACTIVE LANGUAGE POLICY:\n{language_instruction}\n"
 
     return prompt
