@@ -1,5 +1,6 @@
+import time
 from abc import ABC, abstractmethod
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import StrEnum
 from typing import Any
 
@@ -24,6 +25,19 @@ class ToolResult:
     data: Any = None
     error: str | None = None
     permission_level: PermissionLevel = PermissionLevel.READ_ONLY
+
+
+@dataclass
+class ToolAuditEvent:
+    """Structured audit trail record for each tool invocation."""
+
+    timestamp: float = field(default_factory=time.time)
+    tool_name: str = ""
+    arguments: dict[str, Any] = field(default_factory=dict)
+    caller_id: str = "unknown"
+    success: bool = False
+    data: Any = None
+    error: str | None = None
 
 
 class BaseTool(ABC):

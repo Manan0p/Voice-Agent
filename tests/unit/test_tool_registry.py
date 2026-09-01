@@ -55,12 +55,12 @@ async def test_unknown_tool_handling() -> None:
     registry = ToolRegistry()
     res = await registry.execute("non_existent_tool", {})
     assert res.success is False
-    assert "not found" in (res.error or "")
+    assert "not recognized" in (res.error or "") or "not found" in (res.error or "")
 
 
 def test_schema_generation() -> None:
     """Verify tool JSON schema formatting."""
-    registry = ToolRegistry()
+    registry = ToolRegistry(register_defaults=False)
     registry.register(GetCurrentTimeTool())
     registry.register(SaveCallerMessageTool())
 

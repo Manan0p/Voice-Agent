@@ -38,14 +38,20 @@ class SaveCallerMessageInput(BaseModel):
     """Input schema for recording a message from the caller."""
 
     caller_name: str = Field(description="Name of the person who is calling or leaving the message")
+    message: str | None = Field(
+        default=None, description="Detailed text of the message, inquiry, or notes from the caller"
+    )
+    message_content: str | None = Field(
+        default=None, description="Alternative field for message content"
+    )
     phone_number: str | None = Field(
         default=None, description="Phone number or contact info if provided"
     )
-    message_content: str = Field(
-        description="Detailed text of the message, inquiry, or notes from the caller"
-    )
     urgency: str = Field(
         default="normal", description="Perceived urgency: low, normal, high, critical"
+    )
+    category: str | None = Field(
+        default=None, description="Optional message category (e.g. 'work', 'recruiter', 'personal')"
     )
 
 
@@ -59,17 +65,26 @@ class SaveCallerMessageTool(BaseTool):
     permission_level = PermissionLevel.LOW_RISK_WRITE
     args_schema = SaveCallerMessageInput
 
-    def __init__(self) -> None:
+    def __init__(self, name: str = "save_caller_message") -> None:
+        self.name = name
         self.saved_messages: list[dict[str, Any]] = []
 
     async def execute(self, **kwargs: Any) -> ToolResult:
         try:
             validated = SaveCallerMessageInput(**kwargs)
+            content = validated.message or validated.message_content
+            if not content:
+                return ToolResult(
+                    success=False,
+                    error="Message content is required to save a caller message",
+                )
+
             record = {
                 "caller_name": validated.caller_name,
                 "phone_number": validated.phone_number,
-                "message_content": validated.message_content,
+                "message_content": content,
                 "urgency": validated.urgency,
+                "category": validated.category or "general",
                 "timestamp": datetime.now(UTC).isoformat(),
             }
             self.saved_messages.append(record)
@@ -79,6 +94,8 @@ class SaveCallerMessageTool(BaseTool):
                     "status": "saved",
                     "caller_name": validated.caller_name,
                     "message_id": f"msg_{len(self.saved_messages)}",
+                    "content": content,
+                    "urgency": validated.urgency,
                 },
             )
         except Exception as e:

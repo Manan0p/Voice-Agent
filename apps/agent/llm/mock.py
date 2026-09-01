@@ -28,23 +28,28 @@ class MockLLMProvider(LLMProvider):
     ) -> LLMResponse:
         """Return predefined or matched response."""
         self.call_history.append(messages)
-        last_msg = messages[-1].content if messages else ""
+        if not messages:
+            return LLMResponse(content=self.default_response, latency_ms=5.0)
 
-        # Check for tool call trigger
-        for trigger_key, tool_call in self.tool_call_triggers.items():
-            if trigger_key.lower() in last_msg.lower():
-                return LLMResponse(
-                    content="",
-                    tool_calls=[tool_call],
-                    finish_reason="tool_calls",
-                    latency_ms=15.0,
-                    prompt_tokens=20,
-                    completion_tokens=10,
-                )
+        last_msg = messages[-1]
+        last_content = last_msg.content or ""
+
+        # Check for tool call trigger only if last message was from user
+        if last_msg.role == "user":
+            for trigger_key, tool_call in self.tool_call_triggers.items():
+                if trigger_key.lower() in last_content.lower():
+                    return LLMResponse(
+                        content="",
+                        tool_calls=[tool_call],
+                        finish_reason="tool_calls",
+                        latency_ms=15.0,
+                        prompt_tokens=20,
+                        completion_tokens=10,
+                    )
 
         # Check for matching custom response
         for key, resp in self.custom_responses.items():
-            if key.lower() in last_msg.lower():
+            if key.lower() in last_content.lower():
                 return LLMResponse(
                     content=resp,
                     latency_ms=10.0,
@@ -68,8 +73,8 @@ class MockLLMProvider(LLMProvider):
     ) -> AsyncGenerator[str, None]:
         """Stream words one by one."""
         self.call_history.append(messages)
-        last_msg = messages[-1].content if messages else ""
-        text = self.custom_responses.get(last_msg, self.default_response)
+        last_content = messages[-1].content if messages else ""
+        text = self.custom_responses.get(last_content, self.default_response)
         words = text.split(" ")
         for i, word in enumerate(words):
             yield word + (" " if i < len(words) - 1 else "")
