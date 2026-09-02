@@ -19,7 +19,7 @@ class IntentClassifier:
         # Job Interview & Recruitment
         (
             re.compile(
-                r"\b(interview|round \d|shortlist|shortlisted|hiring|job role|application|resume|hr|offer letter|compensation|salary expectations|talent acquisition)\b",
+                r"\b(interview|round \d|shortlist|shortlisted|hiring|recruitment|recruiter|job role|position|sde|application|resume|hr|offer letter|compensation|salary expectations|talent acquisition|background verification)\b",
                 re.I,
             ),
             IntentCategory.JOB_INTERVIEW,
@@ -28,7 +28,7 @@ class IntentClassifier:
         # Delivery & Logistics
         (
             re.compile(
-                r"\b(delivery|courier|package|parcel|zomato|swiggy|blinkit|zepto|amazon|gate pe|doorbell|otp bata|cash on delivery|cod)\b",
+                r"\b(delivery|courier|package|parcel|zomato|swiggy|blinkit|zepto|amazon courier|amazon delivery|amazon|gate pe|doorbell|otp bata|cash on delivery|cod)\b",
                 re.I,
             ),
             IntentCategory.DELIVERY,
@@ -37,7 +37,7 @@ class IntentClassifier:
         # Urgent Personal & Emergency
         (
             re.compile(
-                r"\b(emergency|hospital|accident|tabiyat|doctor|police|urgent help|madad chahiye|serious|urgent matter)\b",
+                r"\b(emergency|hospital|accident|tabiyat|doctor|police|urgent help|madad chahiye|serious|urgent matter|security alert|unauthorized attempt|breakdown|fire alarm|evacuate)\b",
                 re.I,
             ),
             IntentCategory.URGENT_PERSONAL,
@@ -55,7 +55,7 @@ class IntentClassifier:
         # Utilities, Landlord & Maintenance
         (
             re.compile(
-                r"\b(maintenance|landlord|rent|water supply|power backup|technician|plumber|electrician|ac service|broadband|electricity bill|gas meter|meter reading)\b",
+                r"\b(maintenance|landlord|rent|water supply|power backup|technician|plumber|electrician|ac service|broadband|electricity bill|electricity|pay bill|disconnected|gas meter|meter reading)\b",
                 re.I,
             ),
             IntentCategory.UTILITY_MAINTENANCE,
@@ -64,7 +64,7 @@ class IntentClassifier:
         # Sales & Marketing
         (
             re.compile(
-                r"\b(pre-approved loan|credit card offer|insurance policy|invest in crypto|free gift card|buy property|trading scheme|real estate|luxury villas|investing in)\b",
+                r"\b(pre-approved loan|credit card offer|insurance policy|invest in crypto|free gift card|buy property|trading scheme|real estate|luxury villas|investing in|timeshare|resort membership|membership|discount offer)\b",
                 re.I,
             ),
             IntentCategory.SALES_MARKETING,

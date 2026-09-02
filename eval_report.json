@@ -1,0 +1,1041 @@
+{
+  "timestamp": "2026-09-02T18:10:19Z",
+  "total_calls": 50,
+  "total_passed": 50,
+  "overall_accuracy_pct": 100.0,
+  "target_pass_rate_pct": 95.0,
+  "latency_benchmarks_ms": {
+    "avg_ms": 0.331,
+    "p95_ms": 0.533,
+    "target_ms": 50.0
+  },
+  "category_breakdown": {
+    "recruiter": {
+      "total": 10,
+      "passed": 10,
+      "accuracy_pct": 100.0
+    },
+    "delivery": {
+      "total": 10,
+      "passed": 10,
+      "accuracy_pct": 100.0
+    },
+    "emergency": {
+      "total": 10,
+      "passed": 10,
+      "accuracy_pct": 100.0
+    },
+    "spam": {
+      "total": 10,
+      "passed": 10,
+      "accuracy_pct": 100.0
+    },
+    "friends": {
+      "total": 10,
+      "passed": 10,
+      "accuracy_pct": 100.0
+    }
+  },
+  "call_evaluations": [
+    {
+      "id": "call_rec_01",
+      "category": "recruiter",
+      "description": "Google HR interview scheduling",
+      "passed": true,
+      "latency_ms": 0.488,
+      "expected": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_rec_02",
+      "category": "recruiter",
+      "description": "Job offer discussion",
+      "passed": true,
+      "latency_ms": 0.339,
+      "expected": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_rec_03",
+      "category": "recruiter",
+      "description": "Round 2 interview shortlist",
+      "passed": true,
+      "latency_ms": 0.271,
+      "expected": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "hinglish"
+      }
+    },
+    {
+      "id": "call_rec_04",
+      "category": "recruiter",
+      "description": "Microsoft recruiter screening",
+      "passed": true,
+      "latency_ms": 0.295,
+      "expected": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_rec_05",
+      "category": "recruiter",
+      "description": "Interviewer waiting on call",
+      "passed": true,
+      "latency_ms": 0.305,
+      "expected": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_rec_06",
+      "category": "recruiter",
+      "description": "Resume request for interview",
+      "passed": true,
+      "latency_ms": 0.267,
+      "expected": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_rec_07",
+      "category": "recruiter",
+      "description": "Amazon recruiter opening inquiry",
+      "passed": true,
+      "latency_ms": 0.207,
+      "expected": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_rec_08",
+      "category": "recruiter",
+      "description": "Meta interview reschedule",
+      "passed": true,
+      "latency_ms": 0.136,
+      "expected": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_rec_09",
+      "category": "recruiter",
+      "description": "Positive interview feedback discussion",
+      "passed": true,
+      "latency_ms": 0.164,
+      "expected": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_rec_10",
+      "category": "recruiter",
+      "description": "Background verification call",
+      "passed": true,
+      "latency_ms": 0.126,
+      "expected": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "job_interview",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_del_01",
+      "category": "delivery",
+      "description": "Zomato delivery at gate",
+      "passed": true,
+      "latency_ms": 0.189,
+      "expected": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "hinglish"
+      }
+    },
+    {
+      "id": "call_del_02",
+      "category": "delivery",
+      "description": "Amazon delivery OTP request",
+      "passed": true,
+      "latency_ms": 0.153,
+      "expected": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "credential_fishing",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "credential_fishing",
+        "action": "handle_autonomously",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_del_03",
+      "category": "delivery",
+      "description": "Swiggy at door",
+      "passed": true,
+      "latency_ms": 0.13,
+      "expected": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_del_04",
+      "category": "delivery",
+      "description": "Zepto arrival notice",
+      "passed": true,
+      "latency_ms": 0.12,
+      "expected": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_del_05",
+      "category": "delivery",
+      "description": "BlueDart COD parcel",
+      "passed": true,
+      "latency_ms": 0.135,
+      "expected": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_del_06",
+      "category": "delivery",
+      "description": "Blinkit location guide request",
+      "passed": true,
+      "latency_ms": 0.155,
+      "expected": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_del_07",
+      "category": "delivery",
+      "description": "Flipkart gate entry approval",
+      "passed": true,
+      "latency_ms": 0.229,
+      "expected": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_del_08",
+      "category": "delivery",
+      "description": "Myntra doorbell unanswered",
+      "passed": true,
+      "latency_ms": 0.263,
+      "expected": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_del_09",
+      "category": "delivery",
+      "description": "Dunzo drop confirmation",
+      "passed": true,
+      "latency_ms": 0.297,
+      "expected": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_del_10",
+      "category": "delivery",
+      "description": "Speed post signature required",
+      "passed": true,
+      "latency_ms": 0.231,
+      "expected": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "delivery",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_emg_01",
+      "category": "emergency",
+      "description": "Mother reporting hospital emergency",
+      "passed": true,
+      "latency_ms": 0.19,
+      "expected": {
+        "intent": "urgent_personal",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "urgent_personal",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "hinglish"
+      }
+    },
+    {
+      "id": "call_emg_02",
+      "category": "emergency",
+      "description": "Hospital doctor urgent accident call",
+      "passed": true,
+      "latency_ms": 0.235,
+      "expected": {
+        "intent": "urgent_personal",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "urgent_personal",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_emg_03",
+      "category": "emergency",
+      "description": "Father car breakdown emergency",
+      "passed": true,
+      "latency_ms": 0.262,
+      "expected": {
+        "intent": "urgent_personal",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "urgent_personal",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "hinglish"
+      }
+    },
+    {
+      "id": "call_emg_04",
+      "category": "emergency",
+      "description": "Police control room alert",
+      "passed": true,
+      "latency_ms": 0.304,
+      "expected": {
+        "intent": "urgent_personal",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "urgent_personal",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_emg_05",
+      "category": "emergency",
+      "description": "Production outage database crash",
+      "passed": true,
+      "latency_ms": 0.302,
+      "expected": {
+        "intent": "work_collaboration",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "work_collaboration",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "hinglish"
+      }
+    },
+    {
+      "id": "call_emg_06",
+      "category": "emergency",
+      "description": "P0 bug in production",
+      "passed": true,
+      "latency_ms": 0.533,
+      "expected": {
+        "intent": "work_collaboration",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "work_collaboration",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_emg_07",
+      "category": "emergency",
+      "description": "Building fire emergency evacuation",
+      "passed": true,
+      "latency_ms": 0.414,
+      "expected": {
+        "intent": "urgent_personal",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "urgent_personal",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_emg_08",
+      "category": "emergency",
+      "description": "Grandmother medical health emergency",
+      "passed": true,
+      "latency_ms": 0.259,
+      "expected": {
+        "intent": "urgent_personal",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "urgent_personal",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "hinglish"
+      }
+    },
+    {
+      "id": "call_emg_09",
+      "category": "emergency",
+      "description": "Live client demo starting immediately",
+      "passed": true,
+      "latency_ms": 0.423,
+      "expected": {
+        "intent": "work_collaboration",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "work_collaboration",
+        "urgency": "high",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_emg_10",
+      "category": "emergency",
+      "description": "Infrastructure security breach",
+      "passed": true,
+      "latency_ms": 0.361,
+      "expected": {
+        "intent": "urgent_personal",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user"
+      },
+      "actual": {
+        "intent": "urgent_personal",
+        "urgency": "critical",
+        "risk": "safe",
+        "action": "interrupt_user",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_spm_01",
+      "category": "spam",
+      "description": "Police arrest warrant extortion scam",
+      "passed": true,
+      "latency_ms": 0.227,
+      "expected": {
+        "intent": "spam_scam",
+        "urgency": "critical",
+        "risk": "high_risk_scam",
+        "action": "block_and_terminate"
+      },
+      "actual": {
+        "intent": "spam_scam",
+        "urgency": "critical",
+        "risk": "high_risk_scam",
+        "action": "block_and_terminate",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_spm_02",
+      "category": "spam",
+      "description": "Lottery scam prize claim",
+      "passed": true,
+      "latency_ms": 0.281,
+      "expected": {
+        "intent": "spam_scam",
+        "urgency": "low",
+        "risk": "high_risk_scam",
+        "action": "block_and_terminate"
+      },
+      "actual": {
+        "intent": "spam_scam",
+        "urgency": "low",
+        "risk": "high_risk_scam",
+        "action": "block_and_terminate",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_spm_03",
+      "category": "spam",
+      "description": "KYC bank account password phishing",
+      "passed": true,
+      "latency_ms": 0.31,
+      "expected": {
+        "intent": "spam_scam",
+        "urgency": "low",
+        "risk": "credential_fishing",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "spam_scam",
+        "urgency": "low",
+        "risk": "credential_fishing",
+        "action": "handle_autonomously",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_spm_04",
+      "category": "spam",
+      "description": "Customs court summons extortion",
+      "passed": true,
+      "latency_ms": 0.172,
+      "expected": {
+        "intent": "spam_scam",
+        "urgency": "critical",
+        "risk": "high_risk_scam",
+        "action": "block_and_terminate"
+      },
+      "actual": {
+        "intent": "spam_scam",
+        "urgency": "critical",
+        "risk": "high_risk_scam",
+        "action": "block_and_terminate",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_spm_05",
+      "category": "spam",
+      "description": "Pre-approved loan marketing call",
+      "passed": true,
+      "latency_ms": 0.703,
+      "expected": {
+        "intent": "sales_marketing",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "sales_marketing",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_spm_06",
+      "category": "spam",
+      "description": "Real estate sales call",
+      "passed": true,
+      "latency_ms": 0.322,
+      "expected": {
+        "intent": "sales_marketing",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "sales_marketing",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_spm_07",
+      "category": "spam",
+      "description": "Crypto trading scheme marketing",
+      "passed": true,
+      "latency_ms": 0.384,
+      "expected": {
+        "intent": "sales_marketing",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "sales_marketing",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_spm_08",
+      "category": "spam",
+      "description": "Insurance telemarketing call",
+      "passed": true,
+      "latency_ms": 0.341,
+      "expected": {
+        "intent": "sales_marketing",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "sales_marketing",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_spm_09",
+      "category": "spam",
+      "description": "Electricity disconnect message",
+      "passed": true,
+      "latency_ms": 0.449,
+      "expected": {
+        "intent": "utility_maintenance",
+        "urgency": "medium",
+        "risk": "safe",
+        "action": "take_message"
+      },
+      "actual": {
+        "intent": "utility_maintenance",
+        "urgency": "medium",
+        "risk": "safe",
+        "action": "take_message",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_spm_10",
+      "category": "spam",
+      "description": "Timeshare resort sales call",
+      "passed": true,
+      "latency_ms": 0.455,
+      "expected": {
+        "intent": "sales_marketing",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "sales_marketing",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_fam_01",
+      "category": "friends",
+      "description": "Friend Rahul asking for chai meetup",
+      "passed": true,
+      "latency_ms": 0.303,
+      "expected": {
+        "intent": "general_inquiry",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "general_inquiry",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "hinglish"
+      }
+    },
+    {
+      "id": "call_fam_02",
+      "category": "friends",
+      "description": "Friend asking for call back regarding weekend",
+      "passed": true,
+      "latency_ms": 0.297,
+      "expected": {
+        "intent": "general_inquiry",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "general_inquiry",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "hinglish"
+      }
+    },
+    {
+      "id": "call_fam_03",
+      "category": "friends",
+      "description": "Mother routine check in",
+      "passed": true,
+      "latency_ms": 0.297,
+      "expected": {
+        "intent": "general_inquiry",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "general_inquiry",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "hinglish"
+      }
+    },
+    {
+      "id": "call_fam_04",
+      "category": "friends",
+      "description": "Father festival visit inquiry",
+      "passed": true,
+      "latency_ms": 0.302,
+      "expected": {
+        "intent": "general_inquiry",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "general_inquiry",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "hinglish"
+      }
+    },
+    {
+      "id": "call_fam_05",
+      "category": "friends",
+      "description": "Friend gym meetup plan",
+      "passed": true,
+      "latency_ms": 0.268,
+      "expected": {
+        "intent": "general_inquiry",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "general_inquiry",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "hinglish"
+      }
+    },
+    {
+      "id": "call_fam_06",
+      "category": "friends",
+      "description": "Mother asking about lunch",
+      "passed": true,
+      "latency_ms": 2.103,
+      "expected": {
+        "intent": "general_inquiry",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "general_inquiry",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "hinglish"
+      }
+    },
+    {
+      "id": "call_fam_07",
+      "category": "friends",
+      "description": "Cricket match confirmation",
+      "passed": true,
+      "latency_ms": 0.49,
+      "expected": {
+        "intent": "general_inquiry",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "general_inquiry",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "hinglish"
+      }
+    },
+    {
+      "id": "call_fam_08",
+      "category": "friends",
+      "description": "Colleague PR review request",
+      "passed": true,
+      "latency_ms": 0.438,
+      "expected": {
+        "intent": "work_collaboration",
+        "urgency": "medium",
+        "risk": "safe",
+        "action": "take_message"
+      },
+      "actual": {
+        "intent": "work_collaboration",
+        "urgency": "medium",
+        "risk": "safe",
+        "action": "take_message",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_fam_09",
+      "category": "friends",
+      "description": "Figma mockup review note",
+      "passed": true,
+      "latency_ms": 0.371,
+      "expected": {
+        "intent": "work_collaboration",
+        "urgency": "medium",
+        "risk": "safe",
+        "action": "take_message"
+      },
+      "actual": {
+        "intent": "work_collaboration",
+        "urgency": "medium",
+        "risk": "safe",
+        "action": "take_message",
+        "detected_language": "pure_english"
+      }
+    },
+    {
+      "id": "call_fam_10",
+      "category": "friends",
+      "description": "Birthday greeting and party inquiry",
+      "passed": true,
+      "latency_ms": 0.231,
+      "expected": {
+        "intent": "general_inquiry",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously"
+      },
+      "actual": {
+        "intent": "general_inquiry",
+        "urgency": "low",
+        "risk": "safe",
+        "action": "handle_autonomously",
+        "detected_language": "hinglish"
+      }
+    }
+  ]
+}
