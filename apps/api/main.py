@@ -12,6 +12,7 @@ from apps.api.routes import (
     messages_router,
     reminders_router,
     status_router,
+    telephony_router,
 )
 from packages.db.session import init_db
 from packages.schemas.common import StandardErrorResponse
@@ -67,6 +68,7 @@ app.include_router(contacts_router)
 app.include_router(knowledge_router)
 app.include_router(reminders_router)
 app.include_router(status_router)
+app.include_router(telephony_router)
 
 
 # Global Exception Handler
