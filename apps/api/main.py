@@ -8,6 +8,7 @@ from fastapi.responses import JSONResponse
 from apps.api.routes import (
     calls_router,
     contacts_router,
+    handoff_router,
     knowledge_router,
     messages_router,
     reminders_router,
@@ -63,6 +64,7 @@ app.add_middleware(
 
 # Register Subsystem Routers
 app.include_router(calls_router)
+app.include_router(handoff_router)
 app.include_router(messages_router)
 app.include_router(contacts_router)
 app.include_router(knowledge_router)

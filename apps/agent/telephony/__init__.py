@@ -12,6 +12,7 @@ from apps.agent.telephony.codecs import (
     mulaw_to_pcm16_bytes,
     pcm_to_mulaw_bytes,
 )
+from apps.agent.telephony.handoff import HandoffManager, get_handoff_manager
 from apps.agent.telephony.simulator import TelephonyCallSimulator
 from apps.agent.telephony.state_machine import CallState, TelephonyCallSession
 from apps.agent.telephony.trunk import (
@@ -27,6 +28,8 @@ __all__ = [
     "AsteriskAudioInputProcessor",
     "AsteriskAudioOutputProcessor",
     "AsteriskVoicePipelineRunner",
+    "HandoffManager",
+    "get_handoff_manager",
     "SIPHeaderParser",
     "ResolvedCallerInfo",
     "TrunkConfig",
