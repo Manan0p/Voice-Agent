@@ -57,6 +57,10 @@ class Settings(BaseSettings):
     audio_input_sample_rate: int = 16000
     audio_output_sample_rate: int = 24000
 
+    # Telegram Bot & Alerts (Phase 16)
+    telegram_bot_token: str = ""
+    telegram_chat_id: str = ""
+
 
 @lru_cache
 def get_settings() -> Settings:

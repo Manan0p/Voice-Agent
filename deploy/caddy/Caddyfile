@@ -1,0 +1,47 @@
+{
+    # Global options
+    admin off
+    auto_https off
+}
+
+:80 {
+    # WebSocket and Telephony audio bridges
+    handle /ws/* {
+        reverse_proxy agent-api:8000
+    }
+
+    # REST API Endpoints & OpenAPI Docs
+    handle /api/* {
+        reverse_proxy agent-api:8000
+    }
+
+    handle /docs* {
+        reverse_proxy agent-api:8000
+    }
+
+    handle /openapi.json {
+        reverse_proxy agent-api:8000
+    }
+
+    handle /health {
+        reverse_proxy agent-api:8000
+    }
+
+    # Next.js Web Dashboard UI
+    handle {
+        reverse_proxy dashboard:3000
+    }
+
+    # Security Headers
+    header {
+        X-Content-Type-Options nosniff
+        X-Frame-Options SAMEORIGIN
+        Referrer-Policy strict-origin-when-cross-origin
+    }
+
+    # Logging
+    log {
+        output stdout
+        format console
+    }
+}

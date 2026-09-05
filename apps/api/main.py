@@ -13,6 +13,7 @@ from apps.api.routes import (
     messages_router,
     reminders_router,
     status_router,
+    telegram_router,
     telephony_router,
 )
 from packages.db.session import init_db
@@ -70,6 +71,7 @@ app.include_router(contacts_router)
 app.include_router(knowledge_router)
 app.include_router(reminders_router)
 app.include_router(status_router)
+app.include_router(telegram_router)
 app.include_router(telephony_router)
 
 

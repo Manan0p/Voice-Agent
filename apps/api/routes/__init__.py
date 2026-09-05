@@ -5,6 +5,7 @@ from apps.api.routes.knowledge import router as knowledge_router
 from apps.api.routes.messages import router as messages_router
 from apps.api.routes.reminders import router as reminders_router
 from apps.api.routes.status import router as status_router
+from apps.api.routes.telegram import router as telegram_router
 from apps.api.routes.telephony import router as telephony_router
 
 __all__ = [
@@ -16,4 +17,5 @@ __all__ = [
     "reminders_router",
     "status_router",
     "telephony_router",
+    "telegram_router",
 ]
