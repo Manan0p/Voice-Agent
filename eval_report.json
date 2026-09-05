@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-09-05T14:54:50Z",
+  "timestamp": "2026-09-05T15:07:01Z",
   "total_calls": 50,
   "total_passed": 50,
   "overall_accuracy_pct": 100.0,
   "target_pass_rate_pct": 95.0,
   "latency_benchmarks_ms": {
-    "avg_ms": 0.22,
-    "p95_ms": 0.397,
+    "avg_ms": 0.461,
+    "p95_ms": 2.938,
     "target_ms": 50.0
   },
   "category_breakdown": {
@@ -42,7 +42,7 @@
       "category": "recruiter",
       "description": "Google HR interview scheduling",
       "passed": true,
-      "latency_ms": 0.229,
+      "latency_ms": 5.169,
       "expected": {
         "intent": "job_interview",
         "urgency": "high",
@@ -62,7 +62,7 @@
       "category": "recruiter",
       "description": "Job offer discussion",
       "passed": true,
-      "latency_ms": 0.149,
+      "latency_ms": 0.458,
       "expected": {
         "intent": "job_interview",
         "urgency": "high",
@@ -82,7 +82,7 @@
       "category": "recruiter",
       "description": "Round 2 interview shortlist",
       "passed": true,
-      "latency_ms": 0.159,
+      "latency_ms": 0.273,
       "expected": {
         "intent": "job_interview",
         "urgency": "high",
@@ -102,7 +102,7 @@
       "category": "recruiter",
       "description": "Microsoft recruiter screening",
       "passed": true,
-      "latency_ms": 0.129,
+      "latency_ms": 0.156,
       "expected": {
         "intent": "job_interview",
         "urgency": "high",
@@ -122,7 +122,7 @@
       "category": "recruiter",
       "description": "Interviewer waiting on call",
       "passed": true,
-      "latency_ms": 0.099,
+      "latency_ms": 0.116,
       "expected": {
         "intent": "job_interview",
         "urgency": "high",
@@ -142,7 +142,7 @@
       "category": "recruiter",
       "description": "Resume request for interview",
       "passed": true,
-      "latency_ms": 0.105,
+      "latency_ms": 0.122,
       "expected": {
         "intent": "job_interview",
         "urgency": "high",
@@ -162,7 +162,7 @@
       "category": "recruiter",
       "description": "Amazon recruiter opening inquiry",
       "passed": true,
-      "latency_ms": 0.111,
+      "latency_ms": 0.179,
       "expected": {
         "intent": "job_interview",
         "urgency": "high",
@@ -182,7 +182,7 @@
       "category": "recruiter",
       "description": "Meta interview reschedule",
       "passed": true,
-      "latency_ms": 0.103,
+      "latency_ms": 0.127,
       "expected": {
         "intent": "job_interview",
         "urgency": "high",
@@ -202,7 +202,7 @@
       "category": "recruiter",
       "description": "Positive interview feedback discussion",
       "passed": true,
-      "latency_ms": 0.121,
+      "latency_ms": 0.206,
       "expected": {
         "intent": "job_interview",
         "urgency": "high",
@@ -222,7 +222,7 @@
       "category": "recruiter",
       "description": "Background verification call",
       "passed": true,
-      "latency_ms": 0.083,
+      "latency_ms": 0.113,
       "expected": {
         "intent": "job_interview",
         "urgency": "high",
@@ -242,7 +242,7 @@
       "category": "delivery",
       "description": "Zomato delivery at gate",
       "passed": true,
-      "latency_ms": 0.142,
+      "latency_ms": 0.169,
       "expected": {
         "intent": "delivery",
         "urgency": "high",
@@ -262,7 +262,7 @@
       "category": "delivery",
       "description": "Amazon delivery OTP request",
       "passed": true,
-      "latency_ms": 0.117,
+      "latency_ms": 0.134,
       "expected": {
         "intent": "delivery",
         "urgency": "high",
@@ -282,7 +282,7 @@
       "category": "delivery",
       "description": "Swiggy at door",
       "passed": true,
-      "latency_ms": 0.098,
+      "latency_ms": 0.114,
       "expected": {
         "intent": "delivery",
         "urgency": "high",
@@ -302,7 +302,7 @@
       "category": "delivery",
       "description": "Zepto arrival notice",
       "passed": true,
-      "latency_ms": 0.075,
+      "latency_ms": 0.095,
       "expected": {
         "intent": "delivery",
         "urgency": "high",
@@ -322,7 +322,7 @@
       "category": "delivery",
       "description": "BlueDart COD parcel",
       "passed": true,
-      "latency_ms": 0.106,
+      "latency_ms": 0.115,
       "expected": {
         "intent": "delivery",
         "urgency": "high",
@@ -342,7 +342,7 @@
       "category": "delivery",
       "description": "Blinkit location guide request",
       "passed": true,
-      "latency_ms": 0.119,
+      "latency_ms": 0.134,
       "expected": {
         "intent": "delivery",
         "urgency": "high",
@@ -362,7 +362,7 @@
       "category": "delivery",
       "description": "Flipkart gate entry approval",
       "passed": true,
-      "latency_ms": 0.113,
+      "latency_ms": 0.218,
       "expected": {
         "intent": "delivery",
         "urgency": "high",
@@ -382,7 +382,7 @@
       "category": "delivery",
       "description": "Myntra doorbell unanswered",
       "passed": true,
-      "latency_ms": 0.1,
+      "latency_ms": 0.119,
       "expected": {
         "intent": "delivery",
         "urgency": "high",
@@ -402,7 +402,7 @@
       "category": "delivery",
       "description": "Dunzo drop confirmation",
       "passed": true,
-      "latency_ms": 0.102,
+      "latency_ms": 0.134,
       "expected": {
         "intent": "delivery",
         "urgency": "high",
@@ -422,7 +422,7 @@
       "category": "delivery",
       "description": "Speed post signature required",
       "passed": true,
-      "latency_ms": 0.147,
+      "latency_ms": 0.111,
       "expected": {
         "intent": "delivery",
         "urgency": "high",
@@ -442,7 +442,7 @@
       "category": "emergency",
       "description": "Mother reporting hospital emergency",
       "passed": true,
-      "latency_ms": 0.255,
+      "latency_ms": 0.197,
       "expected": {
         "intent": "urgent_personal",
         "urgency": "critical",
@@ -462,7 +462,7 @@
       "category": "emergency",
       "description": "Hospital doctor urgent accident call",
       "passed": true,
-      "latency_ms": 0.339,
+      "latency_ms": 0.192,
       "expected": {
         "intent": "urgent_personal",
         "urgency": "critical",
@@ -482,7 +482,7 @@
       "category": "emergency",
       "description": "Father car breakdown emergency",
       "passed": true,
-      "latency_ms": 0.225,
+      "latency_ms": 0.104,
       "expected": {
         "intent": "urgent_personal",
         "urgency": "critical",
@@ -502,7 +502,7 @@
       "category": "emergency",
       "description": "Police control room alert",
       "passed": true,
-      "latency_ms": 0.166,
+      "latency_ms": 0.199,
       "expected": {
         "intent": "urgent_personal",
         "urgency": "critical",
@@ -522,7 +522,7 @@
       "category": "emergency",
       "description": "Production outage database crash",
       "passed": true,
-      "latency_ms": 0.305,
+      "latency_ms": 0.12,
       "expected": {
         "intent": "work_collaboration",
         "urgency": "critical",
@@ -542,7 +542,7 @@
       "category": "emergency",
       "description": "P0 bug in production",
       "passed": true,
-      "latency_ms": 1.323,
+      "latency_ms": 0.252,
       "expected": {
         "intent": "work_collaboration",
         "urgency": "critical",
@@ -562,7 +562,7 @@
       "category": "emergency",
       "description": "Building fire emergency evacuation",
       "passed": true,
-      "latency_ms": 0.612,
+      "latency_ms": 0.3,
       "expected": {
         "intent": "urgent_personal",
         "urgency": "critical",
@@ -582,7 +582,7 @@
       "category": "emergency",
       "description": "Grandmother medical health emergency",
       "passed": true,
-      "latency_ms": 0.211,
+      "latency_ms": 2.938,
       "expected": {
         "intent": "urgent_personal",
         "urgency": "critical",
@@ -602,7 +602,7 @@
       "category": "emergency",
       "description": "Live client demo starting immediately",
       "passed": true,
-      "latency_ms": 0.306,
+      "latency_ms": 0.396,
       "expected": {
         "intent": "work_collaboration",
         "urgency": "high",
@@ -622,7 +622,7 @@
       "category": "emergency",
       "description": "Infrastructure security breach",
       "passed": true,
-      "latency_ms": 0.213,
+      "latency_ms": 5.736,
       "expected": {
         "intent": "urgent_personal",
         "urgency": "critical",
@@ -642,7 +642,7 @@
       "category": "spam",
       "description": "Police arrest warrant extortion scam",
       "passed": true,
-      "latency_ms": 0.17,
+      "latency_ms": 0.399,
       "expected": {
         "intent": "spam_scam",
         "urgency": "critical",
@@ -662,7 +662,7 @@
       "category": "spam",
       "description": "Lottery scam prize claim",
       "passed": true,
-      "latency_ms": 0.189,
+      "latency_ms": 0.17,
       "expected": {
         "intent": "spam_scam",
         "urgency": "low",
@@ -682,7 +682,7 @@
       "category": "spam",
       "description": "KYC bank account password phishing",
       "passed": true,
-      "latency_ms": 0.206,
+      "latency_ms": 0.174,
       "expected": {
         "intent": "spam_scam",
         "urgency": "low",
@@ -702,7 +702,7 @@
       "category": "spam",
       "description": "Customs court summons extortion",
       "passed": true,
-      "latency_ms": 0.145,
+      "latency_ms": 0.088,
       "expected": {
         "intent": "spam_scam",
         "urgency": "critical",
@@ -722,7 +722,7 @@
       "category": "spam",
       "description": "Pre-approved loan marketing call",
       "passed": true,
-      "latency_ms": 0.333,
+      "latency_ms": 0.296,
       "expected": {
         "intent": "sales_marketing",
         "urgency": "low",
@@ -742,7 +742,7 @@
       "category": "spam",
       "description": "Real estate sales call",
       "passed": true,
-      "latency_ms": 0.214,
+      "latency_ms": 0.171,
       "expected": {
         "intent": "sales_marketing",
         "urgency": "low",
@@ -762,7 +762,7 @@
       "category": "spam",
       "description": "Crypto trading scheme marketing",
       "passed": true,
-      "latency_ms": 0.274,
+      "latency_ms": 0.23,
       "expected": {
         "intent": "sales_marketing",
         "urgency": "low",
@@ -782,7 +782,7 @@
       "category": "spam",
       "description": "Insurance telemarketing call",
       "passed": true,
-      "latency_ms": 0.249,
+      "latency_ms": 0.214,
       "expected": {
         "intent": "sales_marketing",
         "urgency": "low",
@@ -802,7 +802,7 @@
       "category": "spam",
       "description": "Electricity disconnect message",
       "passed": true,
-      "latency_ms": 0.319,
+      "latency_ms": 0.253,
       "expected": {
         "intent": "utility_maintenance",
         "urgency": "medium",
@@ -822,7 +822,7 @@
       "category": "spam",
       "description": "Timeshare resort sales call",
       "passed": true,
-      "latency_ms": 0.397,
+      "latency_ms": 0.225,
       "expected": {
         "intent": "sales_marketing",
         "urgency": "low",
@@ -842,7 +842,7 @@
       "category": "friends",
       "description": "Friend Rahul asking for chai meetup",
       "passed": true,
-      "latency_ms": 0.223,
+      "latency_ms": 0.208,
       "expected": {
         "intent": "general_inquiry",
         "urgency": "low",
@@ -862,7 +862,7 @@
       "category": "friends",
       "description": "Friend asking for call back regarding weekend",
       "passed": true,
-      "latency_ms": 0.219,
+      "latency_ms": 0.217,
       "expected": {
         "intent": "general_inquiry",
         "urgency": "low",
@@ -882,7 +882,7 @@
       "category": "friends",
       "description": "Mother routine check in",
       "passed": true,
-      "latency_ms": 0.233,
+      "latency_ms": 0.227,
       "expected": {
         "intent": "general_inquiry",
         "urgency": "low",
@@ -902,7 +902,7 @@
       "category": "friends",
       "description": "Father festival visit inquiry",
       "passed": true,
-      "latency_ms": 0.233,
+      "latency_ms": 0.224,
       "expected": {
         "intent": "general_inquiry",
         "urgency": "low",
@@ -922,7 +922,7 @@
       "category": "friends",
       "description": "Friend gym meetup plan",
       "passed": true,
-      "latency_ms": 0.218,
+      "latency_ms": 0.183,
       "expected": {
         "intent": "general_inquiry",
         "urgency": "low",
@@ -942,7 +942,7 @@
       "category": "friends",
       "description": "Mother asking about lunch",
       "passed": true,
-      "latency_ms": 0.175,
+      "latency_ms": 0.165,
       "expected": {
         "intent": "general_inquiry",
         "urgency": "low",
@@ -962,7 +962,7 @@
       "category": "friends",
       "description": "Cricket match confirmation",
       "passed": true,
-      "latency_ms": 0.195,
+      "latency_ms": 0.178,
       "expected": {
         "intent": "general_inquiry",
         "urgency": "low",
@@ -982,7 +982,7 @@
       "category": "friends",
       "description": "Colleague PR review request",
       "passed": true,
-      "latency_ms": 0.217,
+      "latency_ms": 0.378,
       "expected": {
         "intent": "work_collaboration",
         "urgency": "medium",
@@ -1002,7 +1002,7 @@
       "category": "friends",
       "description": "Figma mockup review note",
       "passed": true,
-      "latency_ms": 0.224,
+      "latency_ms": 0.189,
       "expected": {
         "intent": "work_collaboration",
         "urgency": "medium",
@@ -1022,7 +1022,7 @@
       "category": "friends",
       "description": "Birthday greeting and party inquiry",
       "passed": true,
-      "latency_ms": 0.206,
+      "latency_ms": 0.16,
       "expected": {
         "intent": "general_inquiry",
         "urgency": "low",
