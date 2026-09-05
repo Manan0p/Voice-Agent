@@ -1,0 +1,37 @@
+FROM debian:bookworm-slim
+
+LABEL maintainer="Voice Agent Team"
+LABEL description="Asterisk PBX 20 LTS for Personal AI Call Agent"
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    asterisk \
+    asterisk-pjsip \
+    asterisk-modules \
+    asterisk-sounds-main \
+    asterisk-core-sounds-en \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy configuration files
+COPY infrastructure/asterisk/configs/asterisk.conf /etc/asterisk/asterisk.conf
+COPY infrastructure/asterisk/configs/http.conf /etc/asterisk/http.conf
+COPY infrastructure/asterisk/configs/ari.conf /etc/asterisk/ari.conf
+COPY infrastructure/asterisk/configs/rtp.conf /etc/asterisk/rtp.conf
+COPY infrastructure/asterisk/configs/pjsip.conf /etc/asterisk/pjsip.conf
+COPY infrastructure/asterisk/configs/extensions.conf /etc/asterisk/extensions.conf
+
+# Ensure ownership
+RUN chown -R asterisk:asterisk /etc/asterisk /var/lib/asterisk /var/log/asterisk /var/spool/asterisk /var/run/asterisk
+
+# Healthcheck checking Asterisk CLI response
+HEALTHCHECK --interval=10s --timeout=5s --start-period=5s --retries=3 \
+    CMD asterisk -rx "core show version" || exit 1
+
+EXPOSE 5060/udp 5060/tcp 8088/tcp 10000-10100/udp
+
+USER asterisk
+
+CMD ["asterisk", "-f", "-vvv"]

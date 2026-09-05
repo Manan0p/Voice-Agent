@@ -1,3 +1,4 @@
+from apps.agent.telephony.asterisk_ari import AsteriskARIClient
 from apps.agent.telephony.codecs import (
     base64_to_mulaw,
     chunk_audio,
@@ -10,6 +11,7 @@ from apps.agent.telephony.state_machine import CallState, TelephonyCallSession
 from apps.agent.telephony.twilio_bridge import TwilioMediaStreamBridge
 
 __all__ = [
+    "AsteriskARIClient",
     "mulaw_to_pcm16_bytes",
     "pcm_to_mulaw_bytes",
     "chunk_audio",

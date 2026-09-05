@@ -52,6 +52,25 @@ services:
       timeout: 5s
       retries: 3
 
+  asterisk:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.asterisk
+    container_name: personal_caller_asterisk
+    restart: unless-stopped
+    ports:
+      - "5060:5060/udp"
+      - "5060:5060/tcp"
+      - "8088:8088/tcp"
+      - "10000-10100:10000-10100/udp"
+    volumes:
+      - ./infrastructure/asterisk/configs:/etc/asterisk:ro
+    healthcheck:
+      test: ["CMD-SHELL", "asterisk -rx 'core show version' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
 volumes:
   pgdata:
     driver: local
@@ -59,3 +78,4 @@ volumes:
     driver: local
   kokoro_models:
     driver: local
+
