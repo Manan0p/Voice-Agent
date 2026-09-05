@@ -1,0 +1,115 @@
+version: "3.9"
+
+services:
+  # 1. PostgreSQL 16 + pgvector Database
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: voice_agent_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-personal_caller}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 2. Asterisk 20+ LTS Telephony PBX
+  asterisk:
+    build:
+      context: .
+      dockerfile: infrastructure/docker/Dockerfile.asterisk
+    container_name: voice_agent_asterisk
+
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - ./config/asterisk:/etc/asterisk:ro
+      - asterisk_sounds:/var/lib/asterisk/sounds
+      - asterisk_logs:/var/log/asterisk
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # 3. FastAPI Voice & Reasoning Agent Engine
+  agent-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: voice_agent_api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    env_file:
+      - .env
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-personal_caller}
+      - ENVIRONMENT=production
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # 4. Next.js Web Dashboard UI
+  dashboard:
+    build:
+      context: ./apps/dashboard
+      dockerfile: Dockerfile
+    container_name: voice_agent_dashboard
+    restart: unless-stopped
+    depends_on:
+      - agent-api
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    ports:
+      - "3000:3000"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # 5. Caddy Production Ingress Proxy
+  caddy:
+    image: caddy:2.7-alpine
+    container_name: voice_agent_caddy
+    restart: unless-stopped
+    depends_on:
+      - agent-api
+      - dashboard
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  postgres_data:
+  asterisk_sounds:
+  asterisk_logs:
+  caddy_data:
+  caddy_config:

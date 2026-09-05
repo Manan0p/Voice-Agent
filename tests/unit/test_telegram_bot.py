@@ -48,7 +48,6 @@ async def test_telegram_alert_card_formatting():
 async def test_send_call_alert_mock_and_summary():
     notifier = TelegramCallNotifier(bot_token="MOCK_TELEGRAM_TOKEN")
     payload = TelegramAlertPayload(
-
         call_id="call-tg-2",
         caller_phone="+919876543210",
         caller_name="Rajesh",
